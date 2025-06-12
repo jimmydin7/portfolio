@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Back2Basics - Jim Din</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1a1a1a',
+              secondary: '#2d2d2d',
+              accent: '#3b82f6'
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-primary text-white min-h-screen">
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+    <div id="app" class="relative z-10">
+      <!-- Header -->
+      <header class="py-8">
+        <div class="container mx-auto px-4">
+          <a href="index.html" class="text-2xl font-bold hover:text-accent transition-colors">← <b>Back</b> to <b>Home</b></a>
+        </div>
+      </header>
+
+      <!-- Project Content -->
+      <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+          <h1 class="text-4xl font-bold mb-8"><b>Back2Basics</b> Minecraft Server</h1>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="space-y-6">
+              <p class="text-lg">A <b>comprehensive website</b> for a <b>Minecraft server</b>, featuring <b>announcements feed</b>, <b>ban appeals</b>, and <b>admin tools</b>.</p>
+              
+              <div>
+                <h2 class="text-2xl font-semibold mb-4"><b>Features</b></h2>
+                <ul class="list-disc list-inside space-y-2">
+                  <li><b>Announcements</b> feed</li>
+                  <li><b>Ban appeal</b> system</li>
+                  <li><b>Admin dashboard</b></li>
+                  <li><b>Server status</b></li>
+                </ul>
+              </div>
+              
+              <div>
+                <h2 class="text-2xl font-semibold mb-4"><b>Technologies</b></h2>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-secondary rounded-full text-sm"><b>Flask</b></span>
+                  <span class="px-3 py-1 bg-secondary rounded-full text-sm"><b>Python</b></span>
+                  <span class="px-3 py-1 bg-secondary rounded-full text-sm"><b>TailwindCSS</b></span>
+                  <span class="px-3 py-1 bg-secondary rounded-full text-sm"><b>JSONdb</b></span>
+                </div>
+              </div>
+              
+              <div class="flex gap-4">
+                <a href="https://streamable.com/57k1nt" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-blue-600 transition-colors rounded">
+                  <i class="fas fa-external-link-alt"></i> <b>Live Demo</b>
+                </a>
+              </div>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="relative">
+                <div id="imageGallery" class="relative">
+                  <img src="projects/back2basics/back2basics_1.png" alt="Back2Basics screenshot 1" class="w-full h-auto rounded-lg shadow-lg cursor-pointer hover:opacity-90 transition-opacity" onclick="openImage(this.src)" onerror="this.src='https://images.pexels.com/photos/1029604/pexels-photo-1029604.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop'">
+                  <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full">
+                    <span id="imageCounter">1/4</span>
+                  </div>
+                  <button onclick="prevImage()" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button onclick="nextImage()" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Image Modal -->
+      <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center" onclick="closeImage()">
+        <div class="relative w-full h-full flex items-center justify-center">
+          <div class="relative max-w-[90%] max-h-[90vh]">
+            <img id="modalImage" src="" alt="Full size image" class="w-full h-full object-contain">
+          </div>
+          <button onclick="prevImage(event)" class="absolute left-4 bg-black bg-opacity-50 text-white p-4 rounded-full hover:bg-opacity-75 transition-opacity">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button onclick="nextImage(event)" class="absolute right-4 bg-black bg-opacity-50 text-white p-4 rounded-full hover:bg-opacity-75 transition-opacity">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full">
+            <span id="modalImageCounter">1/4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="py-8 mt-16 border-t border-secondary">
+        <div class="container mx-auto px-4 text-center">
+          <p>&copy; 2025 Jim Din (xjmd)</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        particlesJS('particles-js', {
+          particles: {
+            number: { value: 100, density: { enable: true, value_area: 800 } },
+            color: { value: '#3b82f6' },
+            shape: { type: 'circle' },
+            opacity: { value: 0.3, random: true },
+            size: { value: 4, random: true },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: '#3b82f6',
+              opacity: 0.2,
+              width: 1
+            },
+            move: {
+              enable: true,
+              speed: 1,
+              direction: 'none',
+              random: true,
+              straight: false,
+              out_mode: 'out',
+              bounce: false
+            }
+          },
+          interactivity: {
+            detect_on: 'canvas',
+            events: {
+              onhover: { enable: true, mode: 'grab' },
+              onclick: { enable: true, mode: 'push' },
+              resize: true
+            },
+            modes: {
+              grab: { distance: 140, line_linked: { opacity: 0.5 } },
+              push: { particles_nb: 4 }
+            }
+          },
+          retina_detect: true
+        });
+      });
+
+      // Image gallery functions
+      const images = [
+        'projects/back2basics/back2basics_1.png',
+        'projects/back2basics/back2basics_2.png',
+        'projects/back2basics/back2basics_3.png',
+        'projects/back2basics/back2basics_4.png'
+      ];
+      let currentImageIndex = 0;
+
+      function updateImage() {
+        const galleryImage = document.querySelector('#imageGallery img');
+        const modalImage = document.getElementById('modalImage');
+        const counter = document.getElementById('imageCounter');
+        const modalCounter = document.getElementById('modalImageCounter');
+        
+        if (galleryImage) galleryImage.src = images[currentImageIndex];
+        if (modalImage) modalImage.src = images[currentImageIndex];
+        if (counter) counter.textContent = `${currentImageIndex + 1}/${images.length}`;
+        if (modalCounter) modalCounter.textContent = `${currentImageIndex + 1}/${images.length}`;
+      }
+
+      function nextImage(event) {
+        if (event) {
+          event.stopPropagation();
+        }
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        updateImage();
+      }
+
+      function prevImage(event) {
+        if (event) {
+          event.stopPropagation();
+        }
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        updateImage();
+      }
+
+      // Image modal functions
+      function openImage(src) {
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        currentImageIndex = images.indexOf(src);
+        if (currentImageIndex === -1) currentImageIndex = 0;
+        updateImage();
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeImage() {
+        const modal = document.getElementById('imageModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
+      // Initialize the gallery
+      document.addEventListener('DOMContentLoaded', function() {
+        updateImage();
+      });
+
+      // Close modal with escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeImage();
+        } else if (e.key === 'ArrowRight') {
+          nextImage();
+        } else if (e.key === 'ArrowLeft') {
+          prevImage();
+        }
+      });
+    </script>
+  </body>
+</html> 
