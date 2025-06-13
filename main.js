@@ -2,7 +2,7 @@
 const projectData = {
   canalyze: {
     name: 'Canalyze',
-    images: ['projects/canalyze/canalyze_1.png', 'projects/canalyze/canalyze_2.png']
+    images: ['projects/canalyze/canalyze_1.png', 'projects/canalyze/canalyze_2.png', 'projects/canalyze/canalyze_3.png', 'projects/canalyze/canalyze_4.png']
   },
   matchdev: {
     name: 'Matchdev',
