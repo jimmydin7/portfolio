@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Jim Dinias Blog - Thoughts on web development, AI, and technology" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css">
+    <title>Blog - Jim Dinias</title>
+</head>
+<body>
+
+    <nav class="nav" id="navbar">
+        <a href="jimdinias.dev" class="home-icon">
+            <ion-icon name="home-outline"></ion-icon>
+        </a>
+        <ul class="nav--list" id="nav-list">
+            <li class="nav--list-item">
+                <a href="index.html#section-about" class="nav--list-link">About</a>
+            </li>
+            <li class="nav--list-item">
+                <a href="index.html#section-experience" class="nav--list-link">Experience</a>
+            </li>
+            <li class="nav--list-item">
+                <a href="index.html#section-work" class="nav--list-link">Work</a>
+            </li>
+            <li class="nav--list-item">
+                <a href="index.html#section-contact" class="nav--list-link">Contact</a>
+            </li>
+            <li class="nav--list-item">
+                <a href="blog.html" class="nav--list-link active">Blog</a>
+            </li>
+        </ul>
+        <div class="open-nav-btn" id="mobile-nav-btn">
+            <ion-icon name="menu-outline" class="nav-btn-icon"></ion-icon>
+        </div>
+    </nav>
+
+    <div class="blog-container">
+        <header class="blog-header">
+            <h1 class="heading-primary blog-title">Blog</h1>
+        </header>
+
+        <main class="blog-main">
+            <div class="blog-post-item" data-post-id="1">
+                <a href="blogs/blog-post-1.html" class="blog-post-preview">
+                    <div class="blog-post-date">September 18, 2025</div>
+                    <h2 class="blog-post-title">Building AI-Powered Web Applications with Python and Flask</h2>
+                    <p class="blog-post-subtitle">Lessons learned from creating Notefy, an AI meeting transcription SaaS</p>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">
+                © <span id="current-year">2025</span> Jim Dinias. Built with passion and lots of coffee.
+            </p>
+        </div>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
