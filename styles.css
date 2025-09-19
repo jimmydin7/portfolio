@@ -260,6 +260,9 @@ ion-icon {
 
 .container-about {
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .section-headings {
@@ -279,52 +282,159 @@ ion-icon {
   margin-bottom: 45px;
 }
 
-.container-about-me {
+/* About Content Layout */
+.about-content-wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 5rem;
+  justify-content: space-between;
+  gap: 6rem;
+  margin-bottom: 8rem;
 }
 
-.about-me {
-  max-width: 500px;
+.globe-container {
+  flex: 0 0 400px;
+  height: 400px;
+  position: relative;
+}
+
+.globe {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.globe-sphere {
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/images/mainpage/globe.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+.greece-pin {
+  position: absolute;
+  top: 34%;
+  right: 41%;
+  z-index: 10;
+}
+
+.pin-marker {
+  width: 20px;
+  height: 20px;
+  background: #00fa8e;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 250, 142, 0.4);
+  animation: pinPulse 2s ease-in-out infinite;
+}
+
+.pin-marker::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.location-text {
   text-align: center;
-  color: #ebeeeb;
-  font-size: 1.8rem;
+  color: #00fa8e;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  font-weight: 500;
 }
 
-.tech-stack {
+@keyframes pinPulse {
+  0%, 100% { transform: rotate(-45deg) scale(1); }
+  50% { transform: rotate(-45deg) scale(1.1); }
+}
+
+.about-text-content {
+  flex: 1;
+  text-align: left;
+}
+
+.about-me-text {
+  font-size: 2.4rem;
+  color: #ebeeeb;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Tech Section */
+.tech-section {
+  margin-top: 6rem;
+}
+
+.tech-title {
+  font-size: 3rem;
+  color: #00fa8e;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.tech-carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  background: rgba(16, 20, 43, 0.3);
+  border-radius: 20px;
+  padding: 2rem 0;
+}
+
+.tech-track {
+  display: flex;
+  animation: scroll 20s linear infinite;
+  gap: 4rem;
+}
+
+.tech-item {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem 2rem 1rem 3rem;
-  margin: 100px auto 50px auto;
-  color: #ebeeeb;
-  font-size: 3rem;
-  line-height: 1.7;
-  box-shadow: 26px 26px 0px #010110, -26px -26px 0px #01032a;
-  border-radius: 10px;
-  max-width: 500px;
-  list-style: none;
-}
-
-li::marker {
-  color: #00fa8e;
-}
-
-.tech-stack span {
-  display: inline-block;
-  color: #00fa8e;
-  font-size: 3rem;
-  line-height: 1.5;
-  margin-bottom: 10px;
-}
-
-.tech-stack-item {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 15px;
+  gap: 1rem;
+  min-width: 120px;
+  padding: 1.5rem;
+  background: rgba(1, 2, 29, 0.8);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 250, 142, 0.2);
+  transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+  border-color: #00fa8e;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 250, 142, 0.2);
+}
+
+.tech-item img {
+  width: 50px;
+  height: 50px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.tech-item:hover img {
+  filter: grayscale(0%);
+}
+
+.tech-item span {
+  color: #ebeeeb;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .section-experience {
@@ -583,6 +693,7 @@ li::marker {
 
 .align--right-absolute {
   right: 0;
+  position: absolute;
 }
 
 .tech-stack-list {
@@ -592,8 +703,9 @@ li::marker {
   list-style: none;
   color: #fff;
   font-size: 2.4rem;
-  bottom: 25px;
+  bottom: 15px;
   z-index: 5;
+  flex-wrap: wrap;
 }
 
 .tech-stack-list-item {
@@ -607,6 +719,7 @@ li::marker {
   display: inline-block;
   z-index: 2;
   right: 0;
+  top: 50px;
   text-decoration: none;
   font-size: 1.4rem;
   padding: 1rem 2rem;
@@ -614,6 +727,51 @@ li::marker {
   color: #fff;
   font-weight: 500;
   transition: all 0.3s ease;
+  border-radius: 5px;
+  border: 1px solid #00fa8e;
+}
+
+.project-src-link:hover {
+  background-color: #00fa8e;
+  color: #01021d;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 250, 142, 0.2);
+}
+
+.project-demo-link:link,
+.project-demo-link:visited {
+  position: absolute;
+  display: inline-block;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  text-decoration: none;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  background-color: #00fa8e;
+  color: #01021d;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.project-demo-link:hover {
+  background-color: #02a55f;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 250, 142, 0.3);
+}
+
+.project-link-wrapper {
+  position: relative;
+  display: block;
+}
+
+.project-link-wrapper .project-demo-link {
+  top: 0;
+}
+
+.project-link-wrapper .project-src-link {
+  top: 50px;
 }
 
 #section-contact {
@@ -759,7 +917,8 @@ p b {
 
 @media (max-width: 910px) {
   .tech-stack-list {
-    bottom: 0;
+    bottom: 10px;
+    font-size: 2rem;
   }
 }
 
@@ -847,19 +1006,46 @@ p b {
     margin-bottom: 40px;
   }
 
-  .about-me {
-    font-size: 1.4rem;
-    margin: 0 75px;
+  /* About section responsive */
+  .about-content-wrapper {
+    flex-direction: column;
+    gap: 4rem;
+    text-align: center;
+  }
+
+  .globe-container {
+    flex: none;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
+
+  .about-text-content {
+    text-align: center;
+  }
+
+  .about-me-text {
+    font-size: 1.8rem;
+    margin: 0 2rem;
     line-height: 1.6;
   }
 
-  .tech-stack {
+  .tech-title {
     font-size: 2.4rem;
   }
 
-  .icon {
+  .tech-item {
+    min-width: 100px;
+    padding: 1rem;
+  }
+
+  .tech-item img {
     width: 40px;
     height: 40px;
+  }
+
+  .tech-item span {
+    font-size: 1.2rem;
   }
 
   .container {
@@ -903,6 +1089,12 @@ p b {
 
   .project-src-link:link,
   .project-src-link:visited {
+    font-size: 1.2rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .project-demo-link:link,
+  .project-demo-link:visited {
     font-size: 1.2rem;
     padding: 0.6rem 1.2rem;
   }
@@ -954,6 +1146,8 @@ p b {
   .tech-stack-list {
     padding-right: 5px;
     padding-left: 5px;
+    bottom: 5px;
+    gap: 10px;
   }
 }
 
@@ -1053,6 +1247,40 @@ p b {
   .description-main {
     font-size: 1.3rem;
     text-shadow: 0px 0px 1px rgb(0, 0, 0);
+  }
+
+  /* About section mobile */
+  .globe-container {
+    width: 250px;
+    height: 250px;
+  }
+
+  .about-me-text {
+    font-size: 1.6rem;
+    margin: 0 1rem;
+  }
+
+  .tech-title {
+    font-size: 2rem;
+  }
+
+  .tech-item {
+    min-width: 80px;
+    padding: 0.8rem;
+  }
+
+  .tech-item img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .tech-item span {
+    font-size: 1rem;
+  }
+
+  .pin-label {
+    font-size: 1rem;
+    padding: 0.3rem 0.8rem;
   }
 }
 
