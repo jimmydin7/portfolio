@@ -437,6 +437,41 @@ ion-icon {
   100% { transform: translateX(-50%); }
 }
 
+/* Contact Icons Styling */
+.contact-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.contact-icons a:hover {
+  background: rgba(0, 250, 142, 0.2);
+  transform: translateY(-2px);
+}
+
+.contact-icons i {
+  font-size: 2rem !important;
+  color: #8892b0 !important;
+  transition: color 0.3s ease;
+}
+
+.contact-icons a:hover i {
+  color: #00fa8e !important;
+}
+
 .section-experience {
   padding: 5rem 0;
   position: relative;
